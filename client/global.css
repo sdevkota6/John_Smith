@@ -1,0 +1,195 @@
+/** @import must precede all other statements */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /**
+   * Tailwind CSS theme - Premium Dark Mode
+   * tailwind.config.ts expects the following color variables to be expressed as HSL values.
+   * A different format will require also updating the theme in tailwind.config.ts.
+  */
+  :root {
+    /* Dark Premium Theme */
+    --background: 217 32% 17%;
+    --foreground: 210 40% 98%;
+
+    --card: 217 32% 22%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 217 32% 22%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 190 100% 50%;
+    --primary-foreground: 217 32% 17%;
+
+    --secondary: 200 100% 50%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 32% 28%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 190 100% 50%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 32% 25%;
+    --input: 217 32% 22%;
+    --ring: 190 100% 50%;
+
+    --radius: 0.5rem;
+
+    /* Gradient colors */
+    --gradient-blue: 190 100% 50%;
+    --gradient-teal: 200 100% 50%;
+    --gradient-dark: 217 32% 17%;
+
+    --sidebar-background: 217 32% 17%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 190 100% 50%;
+    --sidebar-primary-foreground: 217 32% 17%;
+    --sidebar-accent: 217 32% 25%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 217 32% 25%;
+    --sidebar-ring: 190 100% 50%;
+  }
+
+  .dark {
+    --background: 217 32% 17%;
+    --foreground: 210 40% 98%;
+
+    --card: 217 32% 22%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 217 32% 22%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 190 100% 50%;
+    --primary-foreground: 217 32% 17%;
+
+    --secondary: 200 100% 50%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 32% 28%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 190 100% 50%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 32% 25%;
+    --input: 217 32% 22%;
+    --ring: 190 100% 50%;
+
+    --sidebar-background: 217 32% 17%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 190 100% 50%;
+    --sidebar-primary-foreground: 217 32% 17%;
+    --sidebar-accent: 217 32% 25%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 217 32% 25%;
+    --sidebar-ring: 190 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  :where(p, span, li, h1, h2, h3, h4, h5, h6, a, button, label, td, th) {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  pre,
+  code {
+    overflow-x: auto;
+    white-space: pre;
+  }
+}
+
+@layer components {
+  .glow-button {
+    @apply relative inline-flex items-center justify-center px-8 py-3 font-semibold text-foreground rounded-lg bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-300 hover:to-blue-400 transition-all duration-300 shadow-lg hover:shadow-2xl hover:shadow-cyan-500/50;
+  }
+
+  .glass-card {
+    @apply backdrop-blur-xl bg-white/5 border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-all duration-300;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent;
+  }
+
+  .smooth-scroll {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Custom animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(34, 211, 238, 0.5), 0 0 40px rgba(34, 211, 238, 0.25);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(34, 211, 238, 0.8), 0 0 60px rgba(34, 211, 238, 0.4);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.glow-animation {
+  animation: glow 3s ease-in-out infinite;
+}
+
+.slide-up {
+  animation: slideUp 0.6s ease-out forwards;
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
